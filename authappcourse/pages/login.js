@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Layout from "../layout/layout";
 import Link from "next/link";
+import styles from "../styles/Form.module.css";
+import Image from "next/image";
 export default function Login() {
   return (
     <Layout>
@@ -14,28 +16,50 @@ export default function Login() {
         </div>
 
         <form className="flex flex-col gap-5">
-          <div className="input-group">
-            <input type="email" name="email" placeholder="Email!" />
+          <div className={styles.input_group}>
+            <input
+              className={styles.input_text}
+              type="email"
+              name="email"
+              placeholder="Email!"
+            />
           </div>
 
-          <div className="input-group">
-            <input type="password" name="password" placeholder="Password!" />
+          <div className={styles.input_group}>
+            <input
+              className={styles.input_text}
+              type="password"
+              name="password"
+              placeholder="Password!"
+            />
           </div>
 
           <div className="input-button">
-            <button type="submit">Login</button>
+            <button className={styles.button} type="submit">
+              Login
+            </button>
           </div>
+
           <div className="input-button">
-            <button type="submit">Sign In with Google</button>
+            <button className={styles.button_custom} type="button">
+              Sign In with Google{" "}
+              <Image src={"/assets/google.svg"} width="20" height="20"></Image>
+            </button>
           </div>
+
           <div className="input-button">
-            <button type="submit">Sign In with GitHub</button>
+            <button className={styles.button_custom} type="button">
+              Sign In with GitHub
+              <Image src={"/assets/github.svg"} width="20" height="20"></Image>
+            </button>
           </div>
         </form>
 
         <p className="text-center">
           Dont Have a account yet? click here
-          <Link href={"/register"} legacyBehavior><a className="text-blue-700"> Sign Up</a></Link>
+          <Link legacyBehavior href={"/register"}>
+            <a className="text-blue-700"> Sign Up</a>
+          </Link>
         </p>
       </section>
     </Layout>
