@@ -23,7 +23,7 @@
     height: 100px;
     background-size: contain;
     z-index: 2;
-    transform: translate(290%);
+    transform: translate(290);
     /* animation: cloud_one 25.5s ease-in 5.9s infinite; */
 
 }
@@ -36,7 +36,7 @@ width: 200px;
 height: 100px;
 background-size: contain;
 z-index: 0;
-transform: translate(290%);
+transform: translate(290);
 /* animation: cloud_two 18.5s ease-in .9s infinite; */
 }
 
