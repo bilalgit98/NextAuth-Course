@@ -3,7 +3,11 @@ import Layout from "../layout/layout";
 import Link from "next/link";
 import styles from "../styles/Form.module.css";
 import Image from "next/image";
+import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
+import { useState } from "react";
+
 export default function Login() {
+  const [show, setShow] = useState(false);
   return (
     <Layout>
       <Head>
@@ -23,15 +27,24 @@ export default function Login() {
               name="email"
               placeholder="Email!"
             />
+            <span className="icon flex items-center px-4">
+              <HiAtSymbol size={25} />
+            </span>
           </div>
 
           <div className={styles.input_group}>
             <input
               className={styles.input_text}
-              type="password"
+              type={`${show ? "text" : "password"}`}
               name="password"
               placeholder="Password!"
             />
+            <span
+              className="icon flex items-center px-4"
+              onClick={() => setShow(!show)}
+            >
+              <HiFingerPrint size={25} />
+            </span>
           </div>
 
           <div className="input-button">
@@ -42,7 +55,7 @@ export default function Login() {
 
           <div className="input-button">
             <button className={styles.button_custom} type="button">
-              Sign In with Google{" "}
+              Sign In with Google
               <Image src={"/assets/google.svg"} width="20" height="20"></Image>
             </button>
           </div>
