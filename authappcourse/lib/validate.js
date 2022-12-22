@@ -22,7 +22,7 @@ export function registerValidate(values) {
   const errors = {};
   if (!values.username) {
     errors.username = "Required";
-  } else if (values.username.includes("")) {
+  } else if (values.username.includes(" ")) {
     errors.username = "Invalid Username";
   }
 
@@ -39,7 +39,7 @@ export function registerValidate(values) {
     errors.Cpassword = "Required";
   } else if (values.password !== values.Cpassword) {
     errors.Cpassword = "Passwords Do not match!!";
-  } else if (values.Cpassword.includes("")) {
+  } else if (values.Cpassword.includes(" ")) {
     errors.Cpassword = "Invalid Confirm Password";
   }
 
