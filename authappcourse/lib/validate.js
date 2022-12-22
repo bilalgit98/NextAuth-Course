@@ -12,7 +12,7 @@ export default function login_validate(values) {
     errors.password = "Required";
   } else if (values.password.length < 8 || values.password.length > 20) {
     errors.password = "Must Be Greater Than 8 and Less Than 20 Characters Long";
-  } else if (values.password.includes("")) {
+  } else if (values.password.includes(" ")) {
     errors.password = "Invalid Password";
   }
   return errors;
@@ -30,7 +30,7 @@ export function registerValidate(values) {
     errors.password = "Required";
   } else if (values.password.length < 8 || values.password.length > 20) {
     errors.password = "Must Be Greater Than 8 and Less Than 20 Characters Long";
-  } else if (values.password.includes("")) {
+  } else if (values.password.includes(" ")) {
     errors.password = "Invalid Password";
   }
 

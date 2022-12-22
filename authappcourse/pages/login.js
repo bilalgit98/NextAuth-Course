@@ -8,23 +8,29 @@ import { useState } from "react";
 import { signIn, signOut } from "next-auth/react";
 import { useFormik } from "formik";
 import login_validate from "../lib/validate";
+import { useRouter } from "next/router";
 
 export default function Login() {
   const [show, setShow] = useState(false);
+  const router = useRouter();
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     validate: login_validate,
-
     onSubmit,
   });
 
-  console.log(formik.errors);
-
   async function onSubmit(values) {
-    console.log(values);
+    const status = await signIn("credentials", {
+      redirect: false,
+      email: values.email,
+      password: values.password,
+      callbackUrl: "/",
+    });
+
+    if (status.ok) router.push(status.url);
   }
 
   //Google Handler Function
