@@ -51,12 +51,6 @@ export default function Register() {
             </span>
           </div>
 
-          {formik.errors.username && formik.touched.username ? (
-            <span className="text-rose-500"> {formik.errors.username} </span>
-          ) : (
-            <></>
-          )}
-
           <div className={styles.input_group}>
             <input
               className={styles.input_text}
